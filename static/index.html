@@ -30,8 +30,9 @@
     <style>
         * {
             box-sizing: border-box;
-            --accent: #ffffff;
+            --accent: #c9c9c9;
             --interface: #141414;
+            --secondary: #252525;
             --background: #080808;
 
             font-family: sans-serif;
@@ -67,15 +68,25 @@
 
         input {
             all: unset;
-            display: block;
+
             padding: 4px;
             margin: 30px auto 0px;
+            text-align: center;
+
+            display: block;
             border-bottom: 1px solid var(--accent);
 
             color: var(--accent);
 
             width: 400px;
             font-size: 32px;
+        }
+
+        input:focus {
+            
+            box-shadow: 0 8px 8px -8px var(--accent);
+
+
         }
 
         #display {
@@ -86,7 +97,7 @@
             margin: 90px auto 60px;
 
             overflow: auto;
-            background-color: #222222;
+            background-color: var(--secondary);
             color: var(--accent);
 
             text-align: center;
