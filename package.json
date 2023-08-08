@@ -1,0 +1,17 @@
+{
+  "name": "random",
+  "version": "1.0.0",
+  "description": "random service",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-formidable": "^1.2.0",
+    "random-org": "^2.2.0"
+  }
+}

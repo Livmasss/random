@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <main>
+        <form action="/random_int" method="post">
+            <input id="max-input" name="max" type="number" placeholder="max number">
+            <input id="min-input" name="min" type="number" placeholder="min number">
+
+            <div id="display">
+                101010
+            </div>
+            <button id="submit">
+                Generate
+            </button>
+        </form>
+    </main>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            --accent: #ffffff;
+            --interface: #141414;
+            --background: #080808;
+
+            font-family: sans-serif;
+        }
+
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+
+            margin: 0;
+            padding: 50px 0px;
+
+            font-size: 18px;
+            background-color: var(--background);
+        }
+        
+        main {
+            width: 600px;
+            height: 100%;
+
+            border-radius: 15px;
+            display: block;
+            background-color: var(--interface);
+
+            padding: 50px;
+            margin: 0px auto;
+        }
+
+        input {
+            all: unset;
+            display: block;
+            padding: 4px;
+            margin: 30px auto 0px;
+            border-bottom: 1px solid var(--accent);
+
+            color: var(--accent);
+
+            width: 400px;
+            font-size: 32px;
+        }
+
+        #display {
+            width: 400px;
+            height: 110px;
+            line-height: 110px;
+
+            margin: 90px auto 60px;
+
+            overflow: auto;
+            background-color: #222222;
+            color: var(--accent);
+
+            text-align: center;
+            vertical-align: middle;
+            font-size: 38px;
+        }
+
+        #submit {
+            all: unset;
+
+            width: 300px;
+            height: 1.5em;
+
+            display: block;
+            margin: 0 auto;
+            padding: 10px 0px;
+
+            border: 2px solid var(--accent);
+            border-radius: 5px;
+
+            font-size: 32px;
+            text-align: center;
+
+            color: var(--accent);
+
+            transition-delay: 100ms;
+            transition: 200ms ease;
+        }
+
+        #submit:hover {
+            cursor: pointer;
+            background-color: var(--accent);
+            color: var(--background);
+            box-shadow: 0 0 12px var(--accent);
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+    <script defer>
+        const form = document.querySelector("form")
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault()
+            let response = await fetch(form.action, 
+            {
+                method : form.method,
+                body: new FormData(form)
+            })
+            const result = await response.json()
+            
+            const display = document.querySelector("#display")
+            display.textContent = result
+        })
+    </script>
+</body>
+</html>
